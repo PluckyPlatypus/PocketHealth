@@ -26,7 +26,6 @@ func NewController() Controller {
 	}
 }
 
-// TODO: swagger or other rest annotations?
 func (controller *DicomController) PostDicom(c *gin.Context) {
 	file, err := c.FormFile("file")
 	if err != nil {

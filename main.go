@@ -5,19 +5,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
-
 	"pocket-health/pkg/controller"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	controller := controller.NewController()
 	router := gin.Default()
-
-	// add swagger
-	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	router.POST("/dicoms", controller.PostDicom)
 	router.GET("/dicoms/:studyId", controller.GetDicomPng)
